@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panha - Web Developer & UI Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+    <div id="3d-bg"></div>
+    <canvas id="mouse-trail"></canvas>
+    <div id="particles-js"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-logo"><i class='bx bxl-html5'></i></div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <i class='bx bx-search'></i>
+            </div>
+            
+            <div class="dark-mode-toggle" id="darkModeToggle"><i class='bx bx-moon'></i></div>
+            
+            <!-- Single Clean Avatar -->
+            <div id="userView" class="user-avatar-wrapper" style="display:none">
+                <div class Whistle-profile-avatar" id="profileAvatar">
+                    <img src="" alt="User" id="userAvatarImg" class="navbar-avatar">
+                </div>
+            </div>
+            <a href="SignIn.html" class="btn-signin" id="signInBtn">Sign In</a>
+            <div class="menu-toggle"><i class='bx bx-menu'></i></div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="content reveal">
+            <h1>Hi, I'm <span>Panha</span></h1>
+            <p>Full-Stack Developer & UI/UX Designer from Cambodia</p>
+            <a href="#projects" class="cta-btn">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section bg-dark">
+        <div class="container reveal">
+            <h2 class="section-title">About Me</h2>
+            <p style="max-width:800px;margin:0 auto;font-size:1.1rem;line-height:1.8;">
+                ខ្ញុំជា Web Developer និង UI Designer មានបទពិសោធន៍ជាង ៣ ឆ្នាំ។ 
+                ខ្ញុំចូលចិត្តបង្កើត Website ស្អាត រហ័ស និងទំនើបបំផុត។ 
+                ខ្ញុំប្រើ React, Vue, Three.js, GSAP និង Firebase ជារៀងរាល់ថ្ងៃ។
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+        <div class="container reveal">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-name">HTML/CSS</div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="98%"></div></div>
+                    <span class="skill-percent">98%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="92%"></div></div>
+                    <span class="skill-percent">92%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">React / Vue</div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="88%"></div></div>
+                    <span class="skill-percent">88%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">UI/UX Design</div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="95%"></div></div>
+                    <span class="skill-percent">95%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Three.js / GSAP</div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="85%"></div></div>
+                    <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Firebase</div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="90%"></div></div>
+                    <span class="skill-percent">90%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section bg-dark">
+        <div class="container reveal">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <img src="image/5.jpg" alt="Project 1">
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>React + Firebase + Stripe</p>
+                        <a href="#" class="project-link"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+                <div class="project-card" data-category="ui">
+                    <img src="image/6.jpg" alt="Project 2">
+                    <div class="project-info">
+                        <h3>Banking App UI</h3>
+                        <p>Figma + Glassmorphism</p>
+                        <a href="#" class="project-link"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+                <div class="project-card" data-category="web">
+                    <img src="image/4.jpg" alt="Project 3">
+                    <div class="project-info">
+                        <h3>Portfolio 3D</h3>
+                        <p>Three.js + GSAP</p>
+                        <a href="#" class="project-link"><i class='bx bx-link-external'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section">
+        <div class="container reveal">
+            <h2 class="section-title">What Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Panha ធ្វើការលឿន ស្អាត និង Professional ខ្លាំងណាស់!"</p>
+                    <h4>— Sokha, CEO</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Website ដែល Panha ធ្វើអោយខ្ញុំ លក់ដាច់ជាងមុន 300%!"</p>
+                    <h4>— Dara, Shop Owner</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section bg-dark">
+        <div class="container reveal">
+            <h2 class="section-title">Get In Touch</h2>
+            <form id="contactForm" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+            <div id="formStatus"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Panha. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-github'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop"><i class='bx bx-up-arrow-alt'></i></div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="profile-modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <div class="modal-header">
+                <div class="avatar-wrapper">
+                    <img src="" alt="Avatar" id="modalAvatar" class="modal-avatar">
+                    <label class="change-photo-btn" id="cameraTrigger"><i class='bx bxs-camera'></i></label>
+                </div>
+                <div class="user-info">
+                    <h3 id="modalName">Panha</h3>
+                    <p id="modalEmail">sopanha11@gmail.com</p>
+                </div>
+            </div>
+            <div class="modal-form">
+                <div class="input-group"><label>Display Name</label><input type="text" id="editName"></div>
+                <div class="input-group"><label>Phone</label><input type="text" id="editPhone"></div>
+                <div class="input-group"><label>Bio</label><textarea id="editBio" rows="2"></textarea></div>
+                <div class="input-group"><label>Location</label><input type="text" id="editLocation"></div>
+            </div>
+            <div class="modal-actions">
+                <button id="saveProfileBtn" class="save-btn">Save Changes</button>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+                <button type="button" class="pretty-photo-btn">
+                    <i class='bx bxs-camera-plus'></i> Change Photo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input សំខាន់តែមួយ -->
+    <input type="file" id="photoInput" accept="image/*" style="display:none">
+
+
+    <!-- Music Player Button -->
+    <div class="music-player-toggle" id="musicToggle">
+        <i class='bx bx-music'></i>
+        <div class="sound-wave">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    
+    <!-- Audio Element (hidden) -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://cdn.jsdelivr.net/gh/sopheakpanha/music-khmer-chill/song1.mp3" type="audio/mpeg">
+        <source src="https://cdn.jsdelivr.net/gh/sopheakpanha/music-khmer-chill/song2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Firebase SDK + EmailJS -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-storage-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- main.js -->
+    <script type="module" src="main.js?v=12"></script>
+</body>
+</html>
