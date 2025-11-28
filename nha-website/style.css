@@ -979,3 +979,20 @@ body.light-mode .footer p { color: #555 !important; }
     0%, 100% { transform: scaleY(1); }
     50% { transform: scaleY(2); }
 }
+
+/* Hide default cursor on body */
+body, html { cursor: none !important; }
+
+/* Testimonials infinite scroll */
+.testimonials-grid {
+    display: flex;
+    overflow: hidden;
+    gap: 30px;
+    width: 100%;
+    
+    padding: 20px 0;
+}
+.testimonial-card {
+    min-width: 350px;
+    flex-shrink: 0;
+}
