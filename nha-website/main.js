@@ -253,13 +253,69 @@ document.addEventListener("DOMContentLoaded", () => {
     audio.addEventListener("play", () => localStorage.setItem("musicEnabled", "true"));
     audio.addEventListener("pause", () => localStorage.setItem("musicEnabled", "false"));
 
-    // EmailJS
+        // ============== CLEAR FORM ពេលចុច Menu ណាមួយ (Desktop + Mobile) ==============
+    const contactForm = document.getElementById("contactForm");
+    const formStatus = document.getElementById("formStatus");
+    const sendBtn = contactForm?.querySelector(".send-btn");
+
+    // មុខងារ clear form
+    const clearContactForm = () => {
+        if (contactForm) {
+            contactForm.reset();
+            formStatus.innerHTML = "";
+            if (sendBtn) {
+                sendBtn.innerHTML = "Send Message";
+                sendBtn.disabled = false;
+            }
+        }
+    };
+
+    // 1. Desktop menu (ចុច Home, About, Skills...)
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", clearContactForm);
+    });
+
+    // 2. Mobile menu (ចុច hamburger ឬចុច menu item ក្នុង mobile)
+    document.querySelector(".menu-toggle")?.addEventListener("click", () => {
+        setTimeout(clearContactForm, 300); // រង់ចាំ animation បើក menu រួច
+    });
+
+    // 3. បើ mobile menu មាន link ខាងក្នុង (សុវត្ថិភាពបំផុត)
+    document.querySelectorAll(".nav-links li a").forEach(link => {
+        link.addEventListener("click", () => {
+            clearContactForm();
+            // បិទ mobile menu ផង
+            document.querySelector(".nav-links").classList.remove("active");
+        });
+    });
+
+    // EmailJS ដដែល (ខ្ញុំដាក់បញ្ចូលឱ្យរួចរាល់)
     emailjs.init("dviMDBON91Iwtuf-s");
-    document.getElementById("contactForm")?.addEventListener("submit", function(e) {
+
+    contactForm?.addEventListener("submit", function(e) {
         e.preventDefault();
+        const originalText = sendBtn.innerHTML;
+
+        sendBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> Sending...';
+        sendBtn.disabled = true;
+        formStatus.innerHTML = "";
+
         emailjs.sendForm('service_gn0aiw7', 'template_ias91a7', this)
-            .then(() => document.getElementById("formStatus").innerHTML = "<p style='color:#00ff88;'>Message sent successfully!</p>")
-            .catch(() => document.getElementById("formStatus").innerHTML = "<p style='color:#ff2d55;'>Failed to send message.</p>");
+            .then(() => {
+                formStatus.innerHTML = '<p style="color:#00ff88; font-weight:600;">Message sent successfully! I\'ll reply soon ❤️</p>';
+                this.reset();
+
+                setTimeout(() => {
+                    formStatus.innerHTML = "";
+                    sendBtn.innerHTML = originalText;
+                    sendBtn.disabled = false;
+                }, 4000);
+            })
+            .catch(() => {
+                formStatus.innerHTML = '<p style="color:#ff2d55; font-weight:600;">Failed to send. Try again!</p>';
+                sendBtn.innerHTML = originalText;
+                sendBtn.disabled = false;
+            });
     });
 
             
